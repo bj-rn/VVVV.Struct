@@ -41,20 +41,20 @@ namespace VVVV.Struct.Factories
             var d = this.Create("Template", "double DoubleIn; string StringIn;");
             this.Add(d);
 
-            AppDomain.CurrentDomain.AssemblyLoad += (o, e) =>
-            {
-                foreach (var ftr in FFieldTypeRegs)
-                {
-                    if (ftr.AddAssembly(e.LoadedAssembly))
-                    {
-                        // not using the emitted vl assembly for type changes yet
-                        // just claim the assembly, processing of types happens on the update event of vl runtime
-                        if (!(ftr is VLFieldTypeRegistry))
-                            AssemblyAdded(ftr);
-                        return;
-                    }
-                }
-            };
+            //AppDomain.CurrentDomain.AssemblyLoad += (o, e) =>
+            //{
+            //    foreach (var ftr in FFieldTypeRegs)
+            //    {
+            //        if (ftr.AddAssembly(e.LoadedAssembly))
+            //        {
+            //            // not using the emitted vl assembly for type changes yet
+            //            // just claim the assembly, processing of types happens on the update event of vl runtime
+            //            if (!(ftr is VLFieldTypeRegistry))
+            //                AssemblyAdded(ftr);
+            //            return;
+            //        }
+            //    }
+            //};
         }
 
         //---------------------------
